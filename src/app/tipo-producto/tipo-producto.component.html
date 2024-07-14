@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Registro de inventario</h2>
+    <form (ngSubmit)="guardarInventario()">
+        <div class="p-field">
+            <input id="nombre" type="text" pInputText [(ngModel)]="formData.nombre" name="nombre"
+                placeholder="Nombre de usuario" />
+        </div>
+        <div>
+            <td>
+                <select matNativeControl [(ngModel)]="formData.productoValue" name="productos" required
+                    placeholder="d.ff">
+                    <option hidden value="" disabled selected>Productos</option>
+                    <option *ngFor="let productos of TiposProductos" [value]="productos.tipoProducto">
+                        {{productos.tipoProducto}}
+                    </option>
+                </select>
+            </td>
+            <td>
+                <input id="numeroSerie" type="text" pInputText [(ngModel)]="formData.numeroSerie" name="numeroSerie"
+                    placeholder="Numero de serie" />
+            </td>
+        </div>
+        <td>
+            <input [(ngModel)]="formData.fecha" type="date" (input)="onDateChange($event)">
+        </td>
+        <button pButton class="btn btn-primary btn-lg btn-block" type="guardarInventario" label="Guardar y enviar"></button>
+    </form>
+
+</div>

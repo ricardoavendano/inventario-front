@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Entregar inventario</h2>
+    <form>
+        <tr *ngFor="let inventario of Inventario">
+            <div>
+                <td>{{inventario.tipoProducto}}</td>
+            </div>
+            <div>
+                <td>{{inventario.numeroSerie}}</td>
+            </div>
+            <div *ngIf="inventario.estado == true">
+                <span class="btn btn-success btn-lg btn-block">Entregado</span>
+            </div>
+            <div *ngIf="inventario.estado == false">
+                <span class="btn btn-primary btn-lg btn-block" (click)="actualizarEstadoInventario(inventario.id)">Entregar</span>
+            </div>
+            <br>
+        </tr>
+    </form>
+
+</div>

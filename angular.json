@@ -29,15 +29,16 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -90,6 +91,9 @@
               }
             ],
             "styles": [
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5c762d1d-31e5-48c6-9877-ba5500231bba"
   }
 }
